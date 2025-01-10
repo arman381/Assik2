@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Person implements Payable, Comparable<Person> {
+public abstract class Person implements Comparable<Person> {
     private static int counter = 0;
     private final int id;
     private String name;
@@ -47,6 +47,8 @@ public abstract class Person implements Payable, Comparable<Person> {
 
     @Override
     public int compareTo(Person other) {
-        return Double.compare(other.getPaymentAmount(), this.getPaymentAmount());
+        return Double.compare(this.getPaymentAmount(), other.getPaymentAmount());
     }
+
+    public abstract double getPaymentAmount();
 }
